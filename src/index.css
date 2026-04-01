@@ -383,11 +383,11 @@
 
 /* ===== FAST TICKER SCROLL (right-to-left) ===== */
 .ticker-scroll-fast {
-  animation: tickerScrollFast 6s linear infinite;
+  animation: tickerScrollFast 12s linear infinite;
 }
 @keyframes tickerScrollFast {
   from { transform: translateX(0); }
-  to { transform: translateX(-25%); }
+  to { transform: translateX(-50%); }
 }
 
 /* ===== HORIZONTAL SCROLL STRIP ===== */
