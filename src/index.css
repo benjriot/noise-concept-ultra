@@ -278,17 +278,26 @@
 .rgb-split { position: relative; }
 .rgb-split::before, .rgb-split::after {
   content: attr(data-text);
-  position: absolute; top: 0; left: 0;
-  width: 100%; height: 100%;
+  position: absolute; inset: 0;
   opacity: 0; pointer-events: none;
+  /* Inherit all text layout properties so line breaks match */
+  font: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  text-transform: inherit;
+  text-align: inherit;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 .rgb-split.rgb-active::before {
-  color: #FF66E1; left: -4px; top: -2px; opacity: 0.5;
+  color: #FF66E1; opacity: 0.5;
+  transform: translate(-4px, -2px);
   clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
   animation: rgbShift1 3s ease-in-out infinite;
 }
 .rgb-split.rgb-active::after {
-  color: #66FFFF; left: 4px; top: 2px; opacity: 0.5;
+  color: #66FFFF; opacity: 0.5;
+  transform: translate(4px, 2px);
   clip-path: polygon(0 66%, 100% 66%, 100% 100%, 0 100%);
   animation: rgbShift2 3s ease-in-out infinite;
 }
