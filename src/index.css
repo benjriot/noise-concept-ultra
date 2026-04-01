@@ -389,6 +389,10 @@
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
+@keyframes tickerExact {
+  from { transform: translateX(0); }
+  to { transform: translateX(var(--ticker-set-width)); }
+}
 
 /* ===== HORIZONTAL SCROLL STRIP ===== */
 .hscroll-strip {
