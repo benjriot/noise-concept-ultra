@@ -69,7 +69,7 @@ function ArtistOSSection() {
           <div className="mt-12 md:mt-16 flex items-center justify-center gap-5">
             <div className="h-px w-10 md:w-16 bg-artistos-green/40" />
             <p className="font-brexter text-artistos-green text-sm md:text-base lg:text-lg uppercase tracking-[0.15em]">
-              One login. One invoice. One career.
+              Kill the middleman. Keep <span className="italic">your</span> money.
             </p>
             <div className="h-px w-10 md:w-16 bg-artistos-green/40" />
           </div>
