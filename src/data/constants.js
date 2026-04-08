@@ -99,7 +99,6 @@ export const SECTIONS = [
   { id: 'old-vs-noise', label: 'OLD VS NOISE' },
   { id: 'ecosystem', label: 'ECOSYSTEM' },
   { id: 'stats', label: 'STATS' },
-  { id: 'built-different', label: 'BUILT DIFFERENT' },
   { id: 'scroll-hijack', label: 'SIGNAL LOST' },
   { id: 'artistos', label: 'ARTISTOS' },
   { id: 'proof', label: 'PROOF' },

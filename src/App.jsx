@@ -10,6 +10,7 @@ import ScrollProgress from './components/ScrollProgress'
 import FloatingDebris from './components/FloatingDebris'
 import LiveTicker from './components/LiveTicker'
 import Navigation from './components/Navigation'
+import FloatingArtistOSCTA from './components/FloatingArtistOSCTA'
 
 /* ── Sections ── */
 import HeroSection from './components/sections/HeroSection'
@@ -21,7 +22,6 @@ import ManifestoSection from './components/sections/ManifestoSection'
 import OldVsNoiseSection from './components/sections/OldVsNoiseSection'
 import EcosystemSection from './components/sections/EcosystemSection'
 import StatsSection from './components/sections/StatsSection'
-import BuiltDifferentSection from './components/sections/BuiltDifferentSection'
 import SignalLostSection from './components/sections/SignalLostSection'
 import ArtistOSSection from './components/sections/ArtistOSSection'
 import YellowBand from './components/sections/YellowBand'
@@ -110,6 +110,10 @@ export default function App() {
         <TickerBand />
       </ErrorBoundary>
 
+      <ErrorBoundary sectionName="artistos">
+        <ArtistOSSection />
+      </ErrorBoundary>
+
       <ErrorBoundary sectionName="manifesto">
         <ManifestoSection />
       </ErrorBoundary>
@@ -132,16 +136,8 @@ export default function App() {
         <StatsSection />
       </ErrorBoundary>
 
-      <ErrorBoundary sectionName="built-different">
-        <BuiltDifferentSection />
-      </ErrorBoundary>
-
       <ErrorBoundary sectionName="signal-lost">
         <SignalLostSection />
-      </ErrorBoundary>
-
-      <ErrorBoundary sectionName="artistos">
-        <ArtistOSSection />
       </ErrorBoundary>
 
       <ErrorBoundary sectionName="yellow-band">
@@ -166,6 +162,7 @@ export default function App() {
 
       <FloatingDebris />
       <LiveTicker />
+      <FloatingArtistOSCTA />
     </div>
   )
 }

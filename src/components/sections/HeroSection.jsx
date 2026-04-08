@@ -52,10 +52,17 @@ function HeroSection({ booted }) {
         </h1>
       </div>
       <div className="relative z-10 px-5 md:px-8 lg:px-10 xl:px-12 pb-6 md:pb-8 flex flex-col md:flex-row md:items-end md:justify-between gap-4 md:gap-8">
-        <p className="font-space text-noise-grey-light text-[10px] md:text-xs leading-relaxed max-w-sm uppercase tracking-wider">The music industry was built to extract from artists. Noise is built to amplify them.</p>
+        <div className="flex flex-col gap-3 max-w-sm">
+          <p className="font-space text-noise-grey-light text-[10px] md:text-xs leading-relaxed uppercase tracking-wider">The music industry was built to extract from artists. Noise is built to amplify them.</p>
+          {/* ArtistOS teaser pill — surfaces the product within the first viewport */}
+          <a href="#artistos" className="group inline-flex items-center gap-2 self-start font-space text-[10px] md:text-[11px] uppercase tracking-[0.25em] text-noise-yellow border border-noise-yellow/40 px-3 py-1.5 hover:bg-noise-yellow hover:text-noise-black transition-colors duration-200">
+            <span className="w-1.5 h-1.5 rounded-full bg-noise-yellow animate-pulse" />
+            ArtistOS Live &nbsp;&darr;
+          </a>
+        </div>
         <div className="flex flex-row gap-3 flex-shrink-0">
           <MagneticButton href="#pricing" className="font-brexter text-xs md:text-sm uppercase tracking-wider bg-noise-yellow text-noise-black px-6 md:px-8 py-2.5 md:py-3 hover:bg-white transition-colors duration-200 text-center whitespace-nowrap static-burst">Get Started Free</MagneticButton>
-          <MagneticButton href="#ecosystem" className="font-brexter text-xs md:text-sm uppercase tracking-wider bg-noise-black text-noise-white px-6 md:px-8 py-2.5 md:py-3 hover:text-noise-yellow transition-colors duration-200 text-center whitespace-nowrap border border-noise-border">See How</MagneticButton>
+          <MagneticButton href="#artistos" className="font-brexter text-xs md:text-sm uppercase tracking-wider bg-noise-black text-noise-white px-6 md:px-8 py-2.5 md:py-3 hover:text-noise-yellow transition-colors duration-200 text-center whitespace-nowrap border border-noise-border">See How</MagneticButton>
         </div>
       </div>
     </section>

@@ -44,6 +44,7 @@
   --color-noise-grey-light: #aaaaaa;
   --color-noise-academy: #66FFFF;
   --color-noise-distro: #ADFF2F;
+  --color-artistos-green: #ADFF2F;
   --color-noise-records: #FE7A2B;
   --color-noise-studio: #FF66E1;
   --color-noise-live: #B266FF;
@@ -631,29 +632,6 @@ input[type="range"]::-moz-range-thumb {
 .timeline-node.timeline-visible {
   opacity: 1;
   transform: translateX(0);
-}
-
-/* ===== BUILT DIFFERENT GRID ===== */
-.feature-cell {
-  perspective: 800px;
-  cursor: pointer;
-}
-.feature-cell-inner {
-  transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
-  transform-style: preserve-3d;
-  position: relative;
-}
-.feature-cell:hover .feature-cell-inner {
-  transform: rotateY(180deg);
-}
-.feature-cell-front, .feature-cell-back {
-  backface-visibility: hidden;
-  position: absolute; inset: 0;
-  display: flex; align-items: center; justify-content: center;
-  flex-direction: column;
-}
-.feature-cell-back {
-  transform: rotateY(180deg);
 }
 
 /* ===== RAVE MODE (Konami Easter Egg) ===== */
