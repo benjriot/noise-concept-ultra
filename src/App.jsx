@@ -16,6 +16,7 @@ import HeroSection from './components/sections/HeroSection'
 import GallerySection from './components/sections/GallerySection'
 import ProblemSection from './components/sections/ProblemSection'
 import TickerBand from './components/sections/TickerBand'
+import LogoTicker from './components/sections/LogoTicker'
 import ManifestoSection from './components/sections/ManifestoSection'
 import OldVsNoiseSection from './components/sections/OldVsNoiseSection'
 import EcosystemSection from './components/sections/EcosystemSection'
@@ -111,6 +112,10 @@ export default function App() {
 
       <ErrorBoundary sectionName="manifesto">
         <ManifestoSection />
+      </ErrorBoundary>
+
+      <ErrorBoundary sectionName="logo-ticker">
+        <LogoTicker />
       </ErrorBoundary>
 
       <div className="glitch-border h-0 relative" />
