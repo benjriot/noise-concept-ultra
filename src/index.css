@@ -393,6 +393,10 @@
   from { transform: translateX(0); }
   to { transform: translateX(var(--ticker-set-width)); }
 }
+@keyframes tickerExactReverse {
+  from { transform: translateX(var(--ticker-set-width)); }
+  to { transform: translateX(0); }
+}
 
 /* ===== HORIZONTAL SCROLL STRIP ===== */
 .hscroll-strip {
