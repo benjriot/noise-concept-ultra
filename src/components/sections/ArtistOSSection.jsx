@@ -7,6 +7,52 @@ const ARTISTOS_FEATURES = FEATURES_GRID.filter(
   (f) => f.front !== 'LIVE EVENTS' && f.front !== 'STUDIO ACCESS'
 )
 
+// Middlemen that ArtistOS replaces. Cycled through the RotatingRole pill in the headline.
+const ROLES = [
+  'RECORD LABEL',
+  'MANAGEMENT',
+  'LEGAL TEAM',
+  'ACCOUNTANT',
+  'MARKETING TEAM',
+  'PUBLISHER',
+  'SOCIAL TEAM',
+  'DISTRIBUTOR',
+  'BOOKING AGENT',
+]
+
+function RotatingRole() {
+  const [index, setIndex] = useState(0)
+  const [phase, setPhase] = useState('in') // 'in' = visible, 'out' = exiting
+  useEffect(() => {
+    let outTimer
+    const t = setInterval(() => {
+      setPhase('out')
+      outTimer = setTimeout(() => {
+        setIndex((i) => (i + 1) % ROLES.length)
+        setPhase('in')
+      }, 280)
+    }, 1800)
+    return () => {
+      clearInterval(t)
+      clearTimeout(outTimer)
+    }
+  }, [])
+  const isIn = phase === 'in'
+  return (
+    <span
+      className="inline-block bg-artistos-green text-noise-black font-brexter text-3xl sm:text-4xl md:text-5xl lg:text-6xl px-4 md:px-6 lg:px-8 py-1 md:py-2 uppercase tracking-tight leading-[0.95]"
+      style={{
+        transition: 'opacity 280ms cubic-bezier(0.22, 1, 0.36, 1), transform 280ms cubic-bezier(0.22, 1, 0.36, 1), filter 280ms',
+        opacity: isIn ? 1 : 0,
+        transform: isIn ? 'translateY(0)' : 'translateY(-30%)',
+        filter: isIn ? 'blur(0)' : 'blur(3px)',
+      }}
+    >
+      {ROLES[index]}
+    </span>
+  )
+}
+
 // Consequence-framed benefit ladder — what the artist actually GETS
 const BENEFIT_LADDER = [
   { num: '01', title: '100% royalties. Forever.', desc: 'Every penny from every stream, every download, every sync — paid weekly. No middleman cut. No retroactive contracts.' },
@@ -55,9 +101,13 @@ function ArtistOSSection() {
             }}
           />
 
-          {/* SECONDARY — tagline, capped so it never wraps ugly */}
-          <h3 className="font-brexter text-3xl sm:text-4xl md:text-5xl lg:text-6xl uppercase leading-[0.95] tracking-tight text-noise-white max-w-[820px] mx-auto mb-5">
-            Everything an artist needs<br className="hidden sm:block" /> to stay <span className="text-artistos-green">independent.</span>
+          {/* SECONDARY — rotating role headline, 3-line layout. Green pill is the visual hero. */}
+          <h3 className="font-brexter uppercase leading-[0.95] tracking-tight text-noise-white max-w-[820px] mx-auto mb-6 md:mb-7">
+            <span className="block text-xl sm:text-2xl md:text-3xl lg:text-4xl text-noise-white">ArtistOS replaces</span>
+            <span className="block text-xl sm:text-2xl md:text-3xl lg:text-4xl text-noise-white mt-1">your</span>
+            <span className="block mt-4 md:mt-5">
+              <RotatingRole />
+            </span>
           </h3>
 
           {/* TERTIARY — subcopy */}
@@ -75,8 +125,8 @@ function ArtistOSSection() {
           </div>
         </div>
 
-        {/* DASHBOARD CAROUSEL — green frame */}
-        <div className="relative max-w-6xl mx-auto reveal reveal-up mb-20 md:mb-28">
+        {/* DASHBOARD CAROUSEL — widened green frame (max-w-7xl), correct aspect ratio */}
+        <div className="relative max-w-7xl mx-auto reveal reveal-up mb-20 md:mb-28">
           <div className="absolute -inset-8 md:-inset-16 bg-artistos-green/10 blur-3xl pointer-events-none" />
 
           <div className="relative bg-noise-surface border-2 border-artistos-green/40 rounded-lg overflow-hidden shadow-[0_0_120px_rgba(173,255,47,0.18)]">
@@ -85,8 +135,8 @@ function ArtistOSSection() {
               <div className="flex-1 mx-4 max-w-md"><div className="bg-noise-black/50 rounded-md px-3 py-1.5 flex items-center gap-2"><span className="text-noise-grey/40 text-[10px]">&#128274;</span><span className="font-mono text-noise-grey text-[11px] tracking-wider">noisemusic.io/ArtistOS/{SLIDES[active].id}</span></div></div>
               <div className="hidden md:flex items-center gap-1">{SLIDES.map((s, i) => <button key={s.id} onClick={() => goTo(i)} className={`font-outfit text-[11px] uppercase tracking-wider px-3 py-1.5 rounded-md transition-all duration-300 cursor-pointer ${i === active ? 'bg-artistos-green text-noise-black font-semibold' : 'text-noise-grey hover:text-noise-white'}`}>{s.label}</button>)}</div>
             </div>
-            <div className="relative aspect-[16/10] bg-noise-black overflow-hidden">
-              {SLIDES.map((s, i) => <img key={s.id} src={s.img} alt={`ArtistOS ${s.label}`} className="absolute inset-0 w-full h-full object-cover object-top transition-all duration-700" style={{ opacity: i === active ? 1 : 0, transform: i === active ? 'scale(1)' : 'scale(1.02)' }} />)}
+            <div className="relative bg-noise-black overflow-hidden" style={{ aspectRatio: '3120 / 1800' }}>
+              {SLIDES.map((s, i) => <img key={s.id} src={s.img} alt={`ArtistOS ${s.label}`} className="absolute inset-0 w-full h-full object-contain transition-all duration-700" style={{ opacity: i === active ? 1 : 0, transform: i === active ? 'scale(1)' : 'scale(1.02)' }} />)}
             </div>
           </div>
           <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
